@@ -49,6 +49,9 @@ public class Weather implements Serializable {
 //        this.cod = cod;
     }
 
+    public Weather() {
+    }
+
     public Long getId() {
         return id;
     }

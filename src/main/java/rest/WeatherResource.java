@@ -46,13 +46,13 @@ public class WeatherResource {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("weather/{city}")
+    @Path("{city}")
     public String getWeather(@PathParam("city") String city ) throws IOException {
         String url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=4cb8ceb8adc96ee3e4f0518d11cfa985";
         String weatherData = HttpUtils.fetchData(url);
         
         //ChuckDTO joke = GSON.fromJson(chuck, ChuckDTO.class);
-        return weatherData;
+        return GSON.toJson(weatherData);
     }
     
     @GET

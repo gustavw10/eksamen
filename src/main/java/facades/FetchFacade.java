@@ -30,11 +30,11 @@ public class FetchFacade {
     }
 
     public List<String> fetchParallel() throws InterruptedException, ExecutionException {
-        String[] hostList = {"https://icanhazdadjoke.com",
-            "https://some-random-api.ml/facts/fox",
-            "https://swapi.dev/api/",
-            "https://some-random-api.ml/facts/panda",
-            "https://some-random-api.ml/facts/dog"};
+        String capitalName = "copenhagen";
+        String apiKey = "4cb8ceb8adc96ee3e4f0518d11cfa985";
+        String[] hostList = {"http://api.openweathermap.org/data/2.5/weather?q=" + capitalName + "&appid=" + apiKey,
+            "https://restcountries.eu/rest/v2/capital/" + capitalName,
+            "https://covid-api.mmediagroup.fr/v1/cases?country=Denmark"};
         ExecutorService executor = Executors.newCachedThreadPool();
         List<Future<String>> futureList = new ArrayList();
         List<String> result = new ArrayList();
